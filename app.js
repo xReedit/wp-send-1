@@ -41,8 +41,7 @@ socket.on('enviado-send-msj', (data) => {
 
 
 // client session wsp
-const client = new Client({
-    puppeteer: { headless: true ,args: ['--no-sandbox','--disable-setuid-sandbox'] },
+const client = new Client({    
     authStrategy: new LocalAuth()
 });
 
