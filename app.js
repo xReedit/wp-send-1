@@ -41,7 +41,8 @@ socket.on('enviado-send-msj', (data) => {
 
 
 // client session wsp
-const client = new Client({    
+const client = new Client({
+    args: ['--no-sandbox'],
     authStrategy: new LocalAuth()
 });
 
