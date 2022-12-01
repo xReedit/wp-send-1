@@ -3,10 +3,17 @@ const qrcode = require('qrcode-terminal');
 const { Client, LocalAuth, MessageMedia  } = require('whatsapp-web.js');
 const io = require('socket.io-client');
 var _client = null; // venom-bot
+let socket;
 
 /// socket
-const socket = io.connect(config.URL_SCOKET_PROD, {query: config.query});
-socket.on('connect_error', (e) => { console.log(e);  });
+socket = io.connect(config.URL_SCOKET_PROD, {query: config.query});
+
+async function connect() {
+  socket = await io.connect(config.URL_SCOKET_PROD, {query: config.query});
+}
+
+
+socket.on('connect_error', (e) => { console.log(e);  connect(); });
 
 socket.on('disconnect', function() {
   console.log("Socket disconnected.");
@@ -43,7 +50,7 @@ socket.on('enviado-send-msj', (data) => {
 // client session wsp
 const client = new Client({
     // session: session,
-    puppeteer: {headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-extensions']},
+    puppeteer: {headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-extensions']}, //ubuntu
     authStrategy: new LocalAuth()
 });
 
