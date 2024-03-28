@@ -25,10 +25,10 @@ socket.on('disconnect', function() {
 // client session wsp
 const client = new Client({
     // session: session,
-    puppeteer: {headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-extensions']}, //ubuntu
-    authStrategy: new LocalAuth()
-    // puppeteer: { args: ["--no-sandbox", "--disable-dev-shm-usage"] },
+    // puppeteer: {headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-extensions']}, //ubuntu
     // authStrategy: new LocalAuth()
+    puppeteer: { args: ["--no-sandbox", "--disable-dev-shm-usage"] },
+    authStrategy: new LocalAuth()
 });
 
 client.on('disconnected', (reason) => {
