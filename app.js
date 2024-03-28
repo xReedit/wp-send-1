@@ -25,7 +25,7 @@ socket.on('disconnect', function() {
 // client session wsp
 const client = new Client({
     // session: session,
-    // puppeteer: {headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-extensions']}, //ubuntu
+    puppeteer: {headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-extensions']}, //ubuntu
     authStrategy: new LocalAuth()
 });
 
