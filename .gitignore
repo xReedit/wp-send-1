@@ -2,3 +2,5 @@
 ..wwebjs_cache/
 node_modules/
 config.js
+
+#"whatsapp-web.js": "https://github.com/Julzk/whatsapp-web.js/tarball/jkr_hotfix_8"
