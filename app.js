@@ -10,11 +10,9 @@ const MAX_RECONNECT_ATTEMPTS = 5;
 
 /// socket
 socket = io.connect(config.URL_SCOKET_PROD, {query: config.query});
-
 async function connect() {
   socket = await io.connect(config.URL_SCOKET_PROD, {query: config.query});
 }
-
 
 socket.on('connect_error', (e) => { console.log(e);  connect(); });
 
@@ -27,7 +25,7 @@ const client = new Client({
     // session: session,
     // puppeteer: {headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-extensions']}, //ubuntu
     // authStrategy: new LocalAuth()
-    puppeteer: { args: ["--no-sandbox", "--disable-dev-shm-usage"] },
+    // puppeteer: { args: ["--no-sandbox", "--disable-dev-shm-usage"] },
     authStrategy: new LocalAuth()
 });
 
